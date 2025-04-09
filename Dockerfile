@@ -1,12 +1,22 @@
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-RUN pip install --upgrade pip && pip install wheel
+# Install basic system build tools and Python build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && pip install --upgrade pip \
+    && pip install setuptools wheel
 
+# Copy the application code
 COPY . /app
 
-# Prevent pyperclip from being installed
+# Install Python dependencies using constraints
 RUN pip install -r requirements.txt -c constraints.txt
 
-CMD ["solara", "run", "SSP.py", "--host", "0.0.0.0", "--port", "7860"]
+# Expose the default port for Solara
+EXPOSE 8765
+
+# Run the app
+CMD ["solara", "run", "app.py", "--host", "0.0.0.0", "--port", "8765"]
