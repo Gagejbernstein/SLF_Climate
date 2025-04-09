@@ -1,5 +1,4 @@
 solara
 geemap
-localtileserver
 rasterio
-numpy
+localtileserver

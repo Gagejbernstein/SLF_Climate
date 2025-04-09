@@ -1,4 +1,10 @@
-# SLF Risk Map Viewer
+---
+title: SLF Climate Viewer
+emoji: 🌍
+colorFrom: indigo
+colorTo: orange
+sdk: docker
+pinned: false
+---
 
-Visualizes Spotted Lanternfly (SLF) risk levels across the globe under various climate scenarios.
-Built using [Solara](https://solara.dev), [geemap](https://geemap.org), and [localtileserver](https://github.com/banesullivan/localtileserver).
+View future SLF climate suitability under different climate scenarios.
