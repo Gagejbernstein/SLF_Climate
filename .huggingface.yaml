@@ -1,5 +1,5 @@
 build:
   commands:
     - pip install --upgrade pip
-    - pip install wheel
+    - pip install wheel setuptools
     - pip install -r requirements.txt
