@@ -1,10 +1,9 @@
 ---
-title: SSP Snow Load Risk Viewer
-emoji: 🌎
-colorFrom: blue
+title: SLF Climate
+emoji: 🌍
+colorFrom: indigo
 colorTo: red
-sdk: gradio
-sdk_version: 3.0.0
+sdk: docker
 app_file: app.py
 pinned: false
 ---
