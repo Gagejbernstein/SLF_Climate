@@ -1,19 +1,14 @@
-# Use slim Python 3.10 base image
 FROM python:3.10-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy project files into the container
 COPY . /app
 
-# Upgrade pip, install wheel early to prevent bdist_wheel errors
+# Upgrade pip and install wheel first
 RUN pip install --upgrade pip \
- && pip install wheel \
- && pip install -r requirements.txt
+ && pip install wheel
 
-# Expose the port your app runs on (default Solara port is 8765)
-EXPOSE 8765
+# Then install the rest of the dependencies
+RUN pip install -r requirements.txt
 
-# Default command to run the Solara app
-CMD ["solara", "run", "SSP.py", "--host", "0.0.0.0", "--port", "8765"]
+CMD ["solara", "run", "main.py", "--host", "0.0.0.0", "--port", "7860"]
