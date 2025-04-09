@@ -2,7 +2,7 @@
 title: SLF Climate Viewer
 emoji: 🌍
 colorFrom: indigo
-colorTo: orange
+colorTo: red  # ✅ must be one of: red, yellow, green, blue, indigo, purple, pink, gray
 sdk: docker
 pinned: false
 ---
