@@ -1,1 +1,0 @@
-pyperclip==9999  # Force an invalid version to block install

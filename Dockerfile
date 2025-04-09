@@ -1,22 +1,26 @@
+# Use a minimal base image with Python
 FROM python:3.10-slim
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Install basic system build tools and Python build tools
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    && pip install --upgrade pip \
-    && pip install setuptools wheel
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y \
+        build-essential \
+        gdal-bin \
+        libgdal-dev \
+        curl \
+        && rm -rf /var/lib/apt/lists/*
 
-# Copy the application code
-COPY . /app
+# Install pip and wheel
+RUN pip install --upgrade pip && pip install wheel
 
-# Install Python dependencies using constraints
-RUN pip install -r requirements.txt -c constraints.txt
+# Copy app code into the container
+COPY . .
 
-# Expose the default port for Solara
-EXPOSE 8765
+# Install Python dependencies
+RUN pip install -r requirements.txt
 
-# Run the app
-CMD ["solara", "run", "app.py", "--host", "0.0.0.0", "--port", "8765"]
+# Run the Solara app
+CMD ["solara", "run", "SSP.py", "--host", "0.0.0.0", "--port", "10000"]
