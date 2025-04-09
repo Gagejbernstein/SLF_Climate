@@ -1,10 +1,10 @@
 ---
-title: SLF Climate Viewer
-emoji: 🌍
-colorFrom: indigo
-colorTo: red  # ✅ must be one of: red, yellow, green, blue, indigo, purple, pink, gray
-sdk: docker
+title: SSP Snow Load Risk Viewer
+emoji: 🌎
+colorFrom: blue
+colorTo: red
+sdk: gradio
+sdk_version: 3.0.0
+app_file: app.py
 pinned: false
 ---
-
-View future SLF climate suitability under different climate scenarios.
